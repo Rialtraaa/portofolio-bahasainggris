@@ -1,0 +1,915 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakhri Altius Putra | Portfolio</title>
+    <meta name="description" content="Personal portfolio of Fakhri Altius Putra, Informatics student at Universitas Ahmad Dahlan.">
+
+    <style>
+        :root {
+            --navy: #102c4c;
+            --blue: #2563eb;
+            --light-blue: #eaf2fc;
+            --white: #ffffff;
+            --text: #334155;
+            --muted: #64748b;
+            --background: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: var(--navy);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: none;
+            color: var(--navy);
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(120deg, #102c4c, #1e4f83);
+            color: white;
+            padding: 110px 0;
+        }
+
+        .hero-content {
+            max-width: 780px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 7px 15px;
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #dbeafe;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #93c5fd;
+        }
+
+        .hero h3 {
+            font-size: 21px;
+            font-weight: 400;
+            color: #dbeafe;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #dbeafe;
+            max-width: 650px;
+            margin-bottom: 32px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 7px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+            margin-right: 10px;
+        }
+
+        .button-primary {
+            background: white;
+            color: var(--navy);
+        }
+
+        .button-outline {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: var(--blue);
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            color: var(--navy);
+            font-size: 34px;
+            margin-top: 7px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* ABOUT */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 330px;
+            background: linear-gradient(135deg, #dbeafe, #93c5fd);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-size: 65px;
+            font-weight: bold;
+        }
+
+        .about-text h3 {
+            font-size: 25px;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--navy);
+            font-size: 13px;
+        }
+
+        .info-item span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* EXPERIENCE */
+        #experience {
+            background: var(--light-blue);
+        }
+
+        .experience-list {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .experience-card h3 {
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .experience-card .year {
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .experience-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* PROJECTS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(15, 45, 80, 0.1);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg, #dbeafe, #93c5fd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-size: 45px;
+        }
+
+        .project-info {
+            padding: 22px;
+        }
+
+        .project-info h3 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--light-blue);
+            color: var(--blue);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* ASSIGNMENTS */
+        #assignments {
+            background: var(--light-blue);
+        }
+
+        .assignment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .assignment-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .assignment-card .icon {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .assignment-card h3 {
+            color: var(--navy);
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .assignment-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .assignment-card a {
+            display: inline-block;
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* CV */
+        .cv-box {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 55px 25px;
+            border-radius: 15px;
+        }
+
+        .cv-box h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .cv-box p {
+            color: #dbeafe;
+            margin-bottom: 25px;
+        }
+
+        /* CONTACT */
+        #contact {
+            background: var(--light-blue);
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .contact-links a:hover {
+            background: var(--blue);
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0b1f35;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .project-grid,
+            .assignment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 240px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: 90%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 5%;
+                box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 12px 0;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h3 {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .project-grid,
+            .assignment-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card {
+                padding: 20px;
+            }
+
+            .cv-box h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">FAKHRI<span>.</span></a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">PERSONAL PORTFOLIO</span>
+
+                <h1>Hello, I'm <span>Fakhri Altius Putra.</span></h1>
+
+                <h3>Informatics Student | Aspiring Data Analyst</h3>
+
+                <p>
+                    Welcome to my personal portfolio. I am an Informatics
+                    student at Universitas Ahmad Dahlan who is interested
+                    in technology, programming, data analysis, and
+                    software development.
+                </p>
+
+                <a href="#projects" class="button button-primary">
+                    Explore My Projects
+                </a>
+
+                <a href="#about" class="button button-outline">
+                    About Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <span>GET TO KNOW ME</span>
+                <h2>About Me</h2>
+                <p>A short introduction about my background and interests.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-image">
+                    FA
+                </div>
+
+                <div class="about-text">
+                    <h3>Who Am I?</h3>
+
+                    <p>
+                        My name is Fakhri Altius Putra. I am an
+                        Informatics student at Universitas Ahmad Dahlan,
+                        Yogyakarta, Indonesia.
+                    </p>
+
+                    <p>
+                        I have an interest in technology, programming,
+                        and data analysis. During my studies, I have
+                        participated in academic activities, teaching
+                        assistant programs, and technology-based
+                        projects.
+                    </p>
+
+                    <p>
+                        I enjoy learning new things, developing my
+                        technical abilities, and gaining experience
+                        through collaborative projects. My future
+                        career goal is to become a Data Analyst.
+                    </p>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Education</strong>
+                            <span>Universitas Ahmad Dahlan</span>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Major</strong>
+                            <span>Informatics</span>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Interest</strong>
+                            <span>Data Analysis & Technology</span>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Career Goal</strong>
+                            <span>Data Analyst</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <span>MY JOURNEY</span>
+                <h2>Experiences</h2>
+                <p>Academic and organizational experiences.</p>
+            </div>
+
+            <div class="experience-list">
+
+                <div class="experience-card">
+                    <span class="year">2024 – 2025</span>
+                    <h3>Programming Practicum Teaching Assistant</h3>
+                    <p>
+                        Assisted students in learning programming
+                        fundamentals through practical sessions,
+                        exercises, and programming assignments.
+                    </p>
+                    <p><strong>Course:</strong> Dasar Pemrograman.</p>
+                </div>
+
+                <div class="experience-card">
+                    <span class="year">2025 – 2026</span>
+                    <h3>Practicum Teaching Assistant</h3>
+                    <p>
+                        Supported practical learning activities,
+                        helped students understand programming
+                        concepts, and assisted with practical
+                        assignments.
+                    </p>
+                    <p>
+                        <strong>Courses:</strong> Dasar Pemrograman,
+                        Struktur Data, Pemrograman Berorientasi Objek,
+                        Algoritma Pemrograman, and Strategi Algoritma.
+                    </p>
+                </div>
+
+                <div class="experience-card">
+                    <span class="year">2026 – 2027</span>
+                    <h3>Practicum Teaching Assistant</h3>
+                    <p>
+                        Participated in practical teaching activities
+                        related to data, multimedia, and visualization.
+                    </p>
+                    <p>
+                        <strong>Courses:</strong> Rekayasa dan
+                        Penambangan Data, Struktur Data, Visualisasi
+                        Data, and Teknologi Multimedia.
+                    </p>
+                </div>
+
+                <div class="experience-card">
+                    <span class="year">Project Experience</span>
+                    <h3>PPKO – Community Development Project</h3>
+                    <p>
+                        Participated as a member of the Project
+                        Management division, particularly in the
+                        development of agricultural robotics projects.
+                    </p>
+                    <p><strong>Projects:</strong> SENAGARDA Rover and SENAGARDA Trap.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <span>WHAT I HAVE BUILT</span>
+                <h2>My Projects</h2>
+                <p>Some projects I have participated in developing.</p>
+            </div>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-image">🌐</div>
+
+                    <div class="project-info">
+                        <h3>Pondok Pesantren Aisyah Samawa Website</h3>
+                        <p>
+                            A website project developed for
+                            Pondok Pesantren Aisyah Samawa to
+                            provide information about the institution.
+                        </p>
+                        <span class="tag">Web Development</span>
+                        <br>
+                        <a href="#" target="_blank">Project Link →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🤖</div>
+
+                    <div class="project-info">
+                        <h3>SENAGARDA Rover</h3>
+                        <p>
+                            An agricultural robotics project designed
+                            as an autonomous robot to deter rats
+                            in rice fields.
+                        </p>
+                        <span class="tag">Agricultural Robotics</span>
+                        <br>
+                        <a href="#" target="_blank">Project Details →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">⚙️</div>
+
+                    <div class="project-info">
+                        <h3>SENAGARDA Trap</h3>
+                        <p>
+                            A robotic trap project developed to
+                            support agricultural pest control,
+                            particularly for rice-field rats.
+                        </p>
+                        <span class="tag">Robotics</span>
+                        <br>
+                        <a href="#" target="_blank">Project Details →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ASSIGNMENTS -->
+    <section id="assignments">
+        <div class="container">
+            <div class="section-title">
+                <span>ACADEMIC WORK</span>
+                <h2>My Assignments</h2>
+                <p>A collection of assignments and learning activities.</p>
+            </div>
+
+            <div class="assignment-grid">
+
+                <div class="assignment-card">
+                    <div class="icon">📝</div>
+                    <h3>Self Introduction</h3>
+                    <p>
+                        An English assignment introducing my
+                        personal background, education, and interests.
+                    </p>
+                    <a href="#" target="_blank">View Assignment →</a>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="icon">📄</div>
+                    <h3>Professional Text</h3>
+                    <p>
+                        A writing assignment related to professional
+                        communication and English writing.
+                    </p>
+                    <a href="#" target="_blank">View Assignment →</a>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="icon">🛍️</div>
+                    <h3>Online Shopping Experience</h3>
+                    <p>
+                        A personal experience of purchasing a product
+                        through an online shopping platform.
+                    </p>
+                    <a href="#" target="_blank">View Assignment →</a>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="icon">💡</div>
+                    <h3>Other Assignments</h3>
+                    <p>
+                        Additional academic assignments and
+                        learning materials from my courses.
+                    </p>
+                    <a href="#" target="_blank">View More →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+        <div class="container">
+            <div class="cv-box">
+                <h2>Want to Know More About Me?</h2>
+                <p>
+                    You can explore my Curriculum Vitae to learn
+                    more about my education, skills, and experiences.
+                </p>
+
+                <a href="#" class="button button-primary" target="_blank">
+                    View My CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <span>GET IN TOUCH</span>
+                <h2>Contact Me</h2>
+                <p>Feel free to connect with me.</p>
+            </div>
+
+            <div class="contact-box">
+                <p>
+                    Thank you for visiting my portfolio.
+                    I am open to learning opportunities,
+                    collaboration, and new experiences.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:your-email@example.com">
+                        ✉ Email Me
+                    </a>
+
+                    <a href="#" target="_blank">
+                        LinkedIn
+                    </a>
+
+                    <a href="#" target="_blank">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © <span id="year"></span> Fakhri Altius Putra.
+            All Rights Reserved.
+        </p>
+        <p>Designed with HTML, CSS & JavaScript.</p>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu after selecting a navigation link
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // Automatic copyright year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
